@@ -3,25 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/output.css" rel="stylesheet">
+    <link href="css/output.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
     <title>Document</title>
   </head>
   <body>
-    <div class="w-full h-screen bg-black">
-      <video id="video" class="w-full h-full" controls autoplay playsinline></video>
+    <div class="w-full h-screen">
+      <!-- <video id="video" class="w-full h-full" controls autoplay playsinline src="https://web.lotuscdn.vn/2024/3/21/2bb16dca1692fe4e6add2c6942c016dd_1711029713662-h6cidmf7uo.mp4"></video> -->
+      <video
+        id="video"
+        class="w-full h-full"
+        controls
+        autoplay
+        playsinline
+      ></video>
+      <!-- https://scontent-fsgn5-4-fna.cdnfb.net/hls/a164c410039f3f273b66b6df0865d5d19daa43831e7123fc4c0f78f55e23120d -->
+      <!-- <iframe
+        src="https://scontent-fsgn5-4-fna.cdnfb.net/hls/a164c410039f3f273b66b6df0865d5d19daa43831e7123fc4c0f78f55e23120d"
+        frameborder="0"
+        allowfullscreen
+        class="w-full h-full"
+      ></iframe> -->
     </div>
+
+    <!-- <%- include('./components/partials/header/index.ejs'); -%> -->
+
     <script>
       var video = document.getElementById('video');
-      // var videoSrc = 'http://localhost:5000/videos/convert/segment.m3u8';
-      var videoSrc = 'https://animekk.adaptable.app/videos/convert/segment.m3u8';
+      // var videoSrc = '192.168.20.13:5000/videos/segment.m3u8';
+      var videoSrc = `https://demo-hls.adaptable.app/videos/segment.m3u8`;
+      // var videoSrc = '';
       if (Hls.isSupported()) {
         var hls = new Hls();
         hls.loadSource(videoSrc);
         hls.attachMedia(video);
-      }
-      
-      else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = videoSrc;
       }
     </script>

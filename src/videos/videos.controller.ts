@@ -7,16 +7,16 @@ import { UpdateVideoDto } from './dto/update-video.dto';
 export class VideosController {
   constructor(private readonly videosService: VideosService) {}
 
-  // @Post('/test')
-  // test(@Body() createVideoDto: CreateVideoDto) {
-  //   return this.videosService.test();
-  // }
+  @Post('/test')
+  test(@Body() createVideoDto: CreateVideoDto) {
+    return this.videosService.test();
+  }
 
-  // @Post('/convertTSFilesToPNG')
-  // convertTSFilesToPNG(@Body() createVideoDto: CreateVideoDto) {
-  //   return this.videosService.convertTSFilesToPNG();
-  // }
-
+  @Post('/convertTSFilesToPNG')
+  convertTSFilesToPNG(@Body() createVideoDto: CreateVideoDto) {
+    return this.videosService.convertTSFilesToPNG();
+  }
+  
   // @Get('/data')
   // data(@Body() createVideoDto: CreateVideoDto) {
   //   return this.videosService.getDataAnime();
